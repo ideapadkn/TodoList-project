@@ -7,33 +7,43 @@
       @add-todo="addTodo"
     />
     <hr>
-    <todo-list 
+    <loader 
+      v-if="loading"
+    />
+    <todo-list
+      v-else-if="todos.length > 0"
       :todos="todos"
       @remove-todo="removeTodo"
     />
+    <p v-else>Empty!!!</p>
   </div>
 </template>
 
 
 <script>
-import TodoList from '@/components/TodoList.vue';
+import TodoList from '@/components/TodoList.vue'
 import AddTodo from '@/components/AddTodo.vue'
+import Loader from '@/components/Loader.vue'
   export default {
     name: 'App',
     components: {
-      TodoList, AddTodo
+      TodoList, AddTodo, Loader
     },
     data() {
       return {
-        todos: []
+        todos: [],
+        loading: true,
       }
     },
     mounted() {
-      fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      setTimeout( () => {
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
         .then(response => response.json())
         .then(json => {
           this.todos = json
+          this.loading = false;
         })
+      }, 2500)
     },  
     methods: {
       removeTodo(id) {
@@ -45,3 +55,8 @@ import AddTodo from '@/components/AddTodo.vue'
     }
   }
 </script>
+
+
+<style scoped>
+
+</style>
