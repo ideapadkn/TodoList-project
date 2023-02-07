@@ -43,7 +43,7 @@ import Loader from '@/components/Loader.vue'
     },
     mounted() {
       setTimeout( () => {
-        fetch('https://jsonplaceholder.typicode.com/todos?_limit')
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=20')
         .then(response => response.json())
         .then(json => {
           this.todos = json
@@ -85,7 +85,7 @@ import Loader from '@/components/Loader.vue'
 .select {
   padding: 5px;
   border-radius: 12px;
-  margin-top: 15px;
+  margin-top: 10px;
   outline: none;
 }
 .select:focus {

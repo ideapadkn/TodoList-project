@@ -18,7 +18,7 @@
 
 <style scoped>
 #load {
-  margin-top: 100px;
+  margin-top: 130px;
   position:absolute;
   width:600px;
   height:36px;
