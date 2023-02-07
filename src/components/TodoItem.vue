@@ -43,6 +43,7 @@ li {
   border: 1px solid red;
   border-radius: 50%;
   font-weight: 700;
+  cursor: pointer;
 }
 .done {
   text-decoration: line-through;

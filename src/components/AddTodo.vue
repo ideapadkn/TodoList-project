@@ -36,6 +36,9 @@ form {
 input {
   width: 400px;
   padding: 10px 15px;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid #999;
 }
 input:focus {
   outline: none;
@@ -46,5 +49,10 @@ input:focus {
   padding: 10px 15px;
   background-color: transparent;
   border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.btn:hover {
+  box-shadow: 0px 0px 30px 5px rgba(60, 169, 255, 0.21);
 }
 </style>

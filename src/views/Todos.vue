@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h2>Todo application</h2>
+    <h2>Todo page</h2>
+    <router-link to="/">Home</router-link>
+    <hr>
     <add-todo 
       @add-todo="addTodo"
     />
     <hr>
     <todo-list 
-     :todos="todos"
-     @remove-todo="removeTodo"
+      :todos="todos"
+      @remove-todo="removeTodo"
     />
   </div>
 </template>
