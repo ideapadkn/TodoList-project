@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Todo page</h2>
-    <router-link to="/">Home</router-link>
+    <h2 class="title">Todo page</h2>
+    <router-link class="link" style="color: #fff;" to="/">Home</router-link>
     <hr>
     <add-todo 
       @add-todo="addTodo"
@@ -43,7 +43,7 @@ import Loader from '@/components/Loader.vue'
           this.todos = json
           this.loading = false;
         })
-      }, 2500)
+      }, 500)
     },  
     methods: {
       removeTodo(id) {

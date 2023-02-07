@@ -47,7 +47,7 @@ input:focus {
 .btn {
   margin-left: 2rem;
   padding: 10px 15px;
-  background-color: transparent;
+  background-color: #fff;
   border: 1px solid #ccc;
   cursor: pointer;
   border-radius: 12px;

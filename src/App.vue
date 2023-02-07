@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Todo application</h1>
+    <h1 class="title">Todo application</h1>
     <hr>
 
     <router-view />
@@ -9,6 +9,16 @@
 
 
 <style>
+body {
+  background-color: #254571;
+  color: #fff;
+}
+.title {
+  color: #fff;
+}
+.text {
+  color: #fff;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

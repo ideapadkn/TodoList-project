@@ -1,12 +1,12 @@
 <template>
-  <li>
+  <li class="li">
     <span :class="{done: todo.completed}">
       <input 
         @change="todo.completed =!todo.completed" 
         type="checkbox"
       >
       <strong>{{ index + 1 }}</strong>
-      {{ todo.title }}
+      {{ todo.title | uppercase }}
     </span>
     <button 
       @click="$emit('remove-todo', todo.id)"
@@ -26,16 +26,22 @@
       },
       index: Number,
     },
+    filters: {
+      uppercase(value) {
+        return value.toUpperCase()
+      }
+    }
   }
 </script>
 
 <style scoped>
-li {
+.li {
   border: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
   padding: .5rem 2rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 .btn {
   background-color: red;
