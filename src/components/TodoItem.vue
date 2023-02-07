@@ -5,8 +5,8 @@
         @change="todo.completed =!todo.completed" 
         type="checkbox"
       >
-      <strong>{{ index + 1 }}</strong>
-      {{ todo.title | uppercase }}
+      <strong style="margin-right: 10px;">{{ index + 1 }}</strong>
+      {{ todo.title }}
     </span>
     <button 
       @click="$emit('remove-todo', todo.id)"
@@ -27,9 +27,9 @@
       index: Number,
     },
     filters: {
-      uppercase(value) {
-        return value.toUpperCase()
-      }
+      // uppercase(value) {
+      //   return value.toUpperCase()
+      // }
     }
   }
 </script>

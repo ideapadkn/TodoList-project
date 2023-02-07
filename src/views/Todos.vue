@@ -6,16 +6,21 @@
     <add-todo 
       @add-todo="addTodo"
     />
+    <select v-model="filter" class="select">
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="not-completed">Not Completed</option>
+    </select>
     <hr>
     <loader 
       v-if="loading"
     />
     <todo-list
-      v-else-if="todos.length > 0"
-      :todos="todos"
+      v-else-if="filteredTodos.length"
+      :todos="filteredTodos"
       @remove-todo="removeTodo"
     />
-    <p v-else>Empty!!!</p>
+    <p class="text" v-else>Empty!!!</p>
   </div>
 </template>
 
@@ -33,17 +38,36 @@ import Loader from '@/components/Loader.vue'
       return {
         todos: [],
         loading: true,
+        filter: 'all',
       }
     },
     mounted() {
       setTimeout( () => {
-        fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
         .then(response => response.json())
         .then(json => {
           this.todos = json
           this.loading = false;
         })
       }, 500)
+    },  
+    // watch: {
+    //   filter(value) {
+    //     console.log(value);
+    //   }
+    // },  
+    computed: {
+      filteredTodos() {
+        if(this.filter === 'all') {
+          return this.todos
+        }
+        if(this.filter === 'computed') {
+          return this.todos.filter(t => t.completed)
+        }
+        if(this.filter === 'not-computed') {
+          return this.todos.filter(t => !t.completed)
+        }
+      }
     },  
     methods: {
       removeTodo(id) {
