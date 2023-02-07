@@ -1,47 +1,12 @@
 <template>
-  <div>
+  <div id="app">
     <h1>Todo application</h1>
-    <add-todo 
-      @add-todo="addTodo"
-    />
     <hr>
-    <todo-list 
-     :todos="todos"
-     @remove-todo="removeTodo"
-    />
+
+    <router-view />
   </div>
 </template>
 
-<script>
-import TodoList from './components/TodoList.vue';
-import AddTodo from '@/components/AddTodo.vue'
-  export default {
-    name: 'App',
-    components: {
-      TodoList, AddTodo
-    },
-    data() {
-      return {
-        todos: []
-      }
-    },
-    mounted() {
-      fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
-        .then(response => response.json())
-        .then(json => {
-          this.todos = json
-        })
-    },  
-    methods: {
-      removeTodo(id) {
-        this.todos = this.todos.filter(t => t.id !== id);
-      },
-      addTodo(todo) {
-        this.todos.push(todo)
-      }
-    }
-  }
-</script>
 
 <style>
 #app {
