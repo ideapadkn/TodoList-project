@@ -43,7 +43,7 @@ import Loader from '@/components/Loader.vue'
     },
     mounted() {
       setTimeout( () => {
-        fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit')
         .then(response => response.json())
         .then(json => {
           this.todos = json
@@ -68,7 +68,7 @@ import Loader from '@/components/Loader.vue'
           return this.todos.filter(t => !t.completed)
         }
       }
-    },  
+    },
     methods: {
       removeTodo(id) {
         this.todos = this.todos.filter(t => t.id !== id);
@@ -82,5 +82,16 @@ import Loader from '@/components/Loader.vue'
 
 
 <style scoped>
-
+.select {
+  padding: 5px;
+  border-radius: 12px;
+  margin-top: 15px;
+  outline: none;
+}
+.select:focus {
+  box-shadow: 0px 0px 30px 5px rgba(60, 169, 255, 0.21);
+}
+option {
+  border-radius: 12px;
+}
 </style>
