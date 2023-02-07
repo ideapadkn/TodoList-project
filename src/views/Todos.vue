@@ -49,7 +49,7 @@ import Loader from '@/components/Loader.vue'
           this.todos = json
           this.loading = false;
         })
-      }, 500)
+      }, 2500)
     },  
     // watch: {
     //   filter(value) {
